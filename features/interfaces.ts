@@ -11,8 +11,17 @@ const oldCivic = {
     }
 }
 
+const drink = {
+    name: 'Water',
+    sugar: 0,
+    summary(): string {
+        return `Drink: ${this.name} has ${this.sugar} grams of sugar`;
+    }
+}
+
 const printSummary = (item: Reportable): void => {
     console.log(item.summary());
 }
 
 printSummary(oldCivic);
+printSummary(drink);
