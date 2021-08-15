@@ -1,6 +1,6 @@
 class Vehicle {
     drive(): void {
-        console.log("brum brum");
+        console.log("Brrr brrr");
     }
     
     honk(): void {
@@ -8,7 +8,13 @@ class Vehicle {
     }
 }
 
-const vehicle = new Vehicle()
+class Car extends Vehicle {
+    drive(): void {
+        console.log("Vroom vroom");
+    }
+}
 
-vehicle.drive()
-vehicle.honk()
+const car = new Car()
+
+car.drive()
+car.honk()
