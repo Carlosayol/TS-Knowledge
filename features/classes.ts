@@ -5,6 +5,9 @@ class Vehicle {
     //     this.color = color;
     // }
 
+
+    // alternative to create a constructor
+
     constructor(public color: string) {}
 
     public drive(): void {
@@ -17,6 +20,11 @@ class Vehicle {
 }
 
 class Car extends Vehicle {
+    // color attribute is inherited from Vehicle, thus is not needed to be specified as public
+    constructor(public wheels: number, color: string) {
+        super(color);
+    }
+
     private brake(): void {
         console.log("Sqeee");
     }
@@ -27,7 +35,7 @@ class Car extends Vehicle {
     }
 }
 
-const car = new Car('red')
+const car = new Car(4, "blue");
 
 car.drive()
 car.avoidAccident()
