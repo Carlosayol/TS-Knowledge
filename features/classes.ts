@@ -17,7 +17,7 @@ class Vehicle {
     protected honk(): void {
         console.log("honk honk");
     }
-}
+}w
 
 class Car extends Vehicle {
     // color attribute is inherited from Vehicle, thus is not needed to be specified as public
