@@ -1,6 +1,9 @@
-import { User } from "./User";
-import { Company } from "./Company";
-import { company } from "faker";
+interface Mappable {
+    location: {
+        lat: number
+        lng: number
+    }
+}
 
 export class CustomMap {
     private googleMap: google.maps.Map;
@@ -12,27 +15,7 @@ export class CustomMap {
         })
     }
 
-    public addUserMarker(user: User): void {        
-        new google.maps.Marker({
-            map: this.googleMap,
-            position: {
-                lat: user.location.lat,
-                lng: user.location.lng
-            },
-        })
-    }
-
-    public addCompanyMarker(company: Company): void {
-        new google.maps.Marker({
-            map: this.googleMap,
-            position: {
-                lat: company.location.lat,
-                lng: company.location.lng
-            },
-        })
-    }
-
-    public addMarker(entity: User | Company): void {
+    public addMarker(entity: Mappable): void {
         new google.maps.Marker({
             map: this.googleMap,
             position: {	
