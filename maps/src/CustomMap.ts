@@ -1,5 +1,6 @@
 import { User } from "./User";
 import { Company } from "./Company";
+import { company } from "faker";
 
 export class CustomMap {
     private googleMap: google.maps.Map;
@@ -28,6 +29,16 @@ export class CustomMap {
                 lat: company.location.lat,
                 lng: company.location.lng
             },
+        })
+    }
+
+    public addMarker(entity: User | Company): void {
+        new google.maps.Marker({
+            map: this.googleMap,
+            position: {	
+                lat: entity.location.lat,
+                lng: entity.location.lng
+            }
         })
     }
 }
