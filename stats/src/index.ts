@@ -1,1 +1,1 @@
-console.log('Hola')
+import fs from 'fs'
