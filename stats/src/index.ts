@@ -2,7 +2,7 @@ import { MatchReader } from "./MatchReader"
 import { ConsoleReport } from "./reportTargets/ConsoleReport"
 import { WinsAnalysis } from "./analyzers/WinsAnalysis"
 import { Summary } from "./Summary"
-import { Console } from "console"
+import { HtmlReport } from "./reportTargets/HtmlReport"
 
 const reader = new MatchReader('football.csv')
 reader.read()
