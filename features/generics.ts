@@ -33,3 +33,24 @@ function printNumbers(arr: number[]): void {
 function printAnything<T>(arr: T[]): void {
   arr.map(t => console.log(t))
 }
+
+class Car {
+  print() {
+    console.log('I am a car')
+  }
+}
+
+class House {
+  print() {
+    console.log('I am a house')
+  }
+}
+
+interface Printable {
+  print(): void
+}
+
+function printHousesOrCars<T extends Printable>(arr: T[]): void {
+  arr.map(t => t.print())
+}
+
