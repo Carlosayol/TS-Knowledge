@@ -21,3 +21,15 @@ class ArrayOfAnyhing<T> {
     return this.collection[index]
   }
 }
+
+function printStrings(arr: string[]): void {
+  arr.map(str => console.log(str))
+}
+
+function printNumbers(arr: number[]): void {
+  arr.map(num => console.log(num))
+}
+
+function printAnything<T>(arr: T[]): void {
+  arr.map(t => console.log(t))
+}
