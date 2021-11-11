@@ -1,6 +1,8 @@
 import { User } from './models/User'
 
 const user = new User({ id: 1 })
+user.set({name: 'Aese'})
+user.save()
 
-user.fetch()
-console.log(user)
+const user2 = new User({ name: 'New record', age: 0})
+user2.save()
