@@ -9,3 +9,4 @@ export class Attributes<T> {
     Object.assign(this.data, update)
   }
 }
+
