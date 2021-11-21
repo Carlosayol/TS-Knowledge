@@ -36,7 +36,7 @@ export class User {
     this.events.trigger('change')
   }
 
-  fetch() : void {
+  fetch(): void {
     const id = this.attributes.get('id')
     if (typeof id !== 'number') {
       throw new Error("Cannot fetch without id");
@@ -46,6 +46,15 @@ export class User {
       this.set(response.data)
     })
   }
-  
 
+  save(): void {
+    const data = this.attributes.getAll()
+    this.sync.save(data)
+      .then((response: AxiosResponse): void => {
+        this.trigger('save')
+      })
+      .catch(() => {
+        this.trigger('error')
+      })
+  }
 }
