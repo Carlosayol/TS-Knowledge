@@ -1,25 +1,7 @@
-import { User } from './models/User'
+import { UserForm } from './views/UserForm'
 
-const collection = User.buildUserCollection()
+const userForm = new UserForm(
+  document.getElementById('root')
+)
 
-collection.on('change' , () => {
-  console.log(collection)
-})
-
-collection.fetch()
-
-const user = User.buildUser({ id: 1})
-
-user.on('change', () => {
-  console.log(user)
-})
-
-user.on('save', () => {
-  console.log('User has been saved')
-})
-
-user.on('error', () => {
-  console.log('Error')
-})
-
-user.fetch()
+userForm.render()
