@@ -1,5 +1,4 @@
 import { Eventing } from "./Eventing";
-import { User, UserProps } from "./User";
 import axios, { AxiosResponse } from 'axios'
 
 
