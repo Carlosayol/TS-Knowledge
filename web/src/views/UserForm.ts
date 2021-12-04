@@ -26,7 +26,9 @@ export class UserForm {
   onSetNameClick = (): void =>  {
     console.log('Updating name')
     const input = this.parent.querySelector('input')
-    this.model.set({name: input.value})
+    if (input) {
+      this.model.set({name: input.value})
+    }
   }
 
   template(): string {
