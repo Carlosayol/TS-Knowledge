@@ -41,7 +41,6 @@ export abstract class View <T extends Model<K>, K> {
       if(element) {
         this.regions[key] = element
       }
-
     }
   }
 
