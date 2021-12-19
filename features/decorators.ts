@@ -6,13 +6,20 @@ class Boat {
   }
 
   @logError('F')
-  pilot(): void {
-    throw new Error()
-    console.log('brumm')
+  pilot(@parameterDecorator speed: string): void {
+    if (speed === 'fast') {
+      console.log('brummm')
+    }else {
+      throw new Error()
+    }
   }
 }
 
-function logError( errorMessage: string ) {
+function parameterDecorator(target: any, key: string, index: number) {
+  console.log(key, index)
+}
+
+function logError(errorMessage: string) {
   return  function( target: any, key: string, desc: PropertyDescriptor ): void {
     const method = desc.value
   
@@ -26,4 +33,4 @@ function logError( errorMessage: string ) {
   }
 }
 
-new Boat().pilot()
+new Boat().pilot('fast')
