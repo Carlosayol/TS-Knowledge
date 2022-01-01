@@ -26,7 +26,5 @@ function controller(target: typeof Plane) {
   }
 }
 
-
 const secret = Reflect.getMetadata('secret', Plane.prototype, 'fly')
-
 Reflect.defineMetadata('note', 'hello', plane)
