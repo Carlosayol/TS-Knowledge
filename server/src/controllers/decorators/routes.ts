@@ -1,4 +1,7 @@
 import 'reflect-metadata'
+import { Methods } from './Methods'
+
+
 
 function routBinder(method: string) {
   return function(path: string) {
@@ -9,7 +12,7 @@ function routBinder(method: string) {
   }  
 }
 
-export const get = routBinder('get')
-export const post = routBinder('post')
-export const del = routBinder('del')
-export const put = routBinder('put')
+export const get = routBinder(Methods.get)
+export const post = routBinder(Methods.post)
+export const del = routBinder(Methods.del)
+export const put = routBinder(Methods.put)
