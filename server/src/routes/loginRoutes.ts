@@ -1,4 +1,4 @@
-import { NextFunction, Request, response, Response, Router } from 'express'
+import { NextFunction, Request, Response, Router } from 'express'
 
 interface RequestWithBody extends Request {
   body: { [x: string] : string | undefined }
@@ -34,17 +34,6 @@ router.get('/', (req: Request, res: Response) => {
   }
 })
 
-
-
-router.post('/login', (req: RequestWithBody, res: Response) => {
-  const { email, password } = req.body
-  if ( email && password && email === 'test@test.com' && password === 'test' ) {
-    req.session = { loggedIn: true }
-    res.redirect('/')
-  } else {
-    res.send('Invalid credentials')
-  }
-})
 
 router.get('/logout', (req: Request, res: Response) => {
   req.session = undefined
