@@ -39,5 +39,11 @@ class LoginController {
       res.send('Invalid credentials')
     }
   }
+
+  @get('/logout')
+  getLogout(req: Request, res: Response) {
+    req.session = undefined
+    res.redirect('/')
+  }
 }
 
