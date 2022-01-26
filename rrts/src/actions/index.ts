@@ -2,13 +2,13 @@ import { Dispatch } from "redux"
 import axios from 'axios'
 import { ActionTypes } from "./types"
 
-interface Todo {
+export interface Todo {
   id: number
   title: string
   completed: boolean
 }
 
-interface FetchTodosAction {
+export interface FetchTodosAction {
   type: ActionTypes.fetchTodos
   payload: Todo[]
 }
