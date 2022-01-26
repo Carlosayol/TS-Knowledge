@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import App from './components/App'
+import { reducers } from './reducers'
 
-interface AppProps {
-  color?: string
-}
+const store = createStore(reducers, applyMiddleware(thunk))
 
-const App = (props: AppProps): JSX.Element => {
-  return <div>{props.color}</div>
-}
+ReactDOM.render(
+  <Provider store={store}>
+    <App color="red" />
+  </Provider>,
+  document.querySelector('#root')
+)
 
 // class App extends React.Component {
 //   state = { counter: 0 } 
@@ -30,8 +36,3 @@ const App = (props: AppProps): JSX.Element => {
 //     )
 //   }
 // }
-
-ReactDOM.render(
-  <App color="red" />,
-  document.querySelector('#root')
-)
