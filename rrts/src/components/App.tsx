@@ -1,18 +1,36 @@
-import React from 'react'
-import { Todo } from '../actions'
+import { fetchTodos, Todo } from '../actions'
 import { StoreState } from '../reducers'
+import { connect } from 'react-redux'
 
 interface AppProps {
   todos: Todo[]
   fetchTodos(): any
 }
 
-const App = (props: AppProps): JSX.Element => {
-  return <div>Hola</div>
+const _App = (props: AppProps): JSX.Element => {
+  const onClick = (): void => {
+    props.fetchTodos()
+  }
+
+  const renderList = (): JSX.Element[] => {
+    return props.todos.map((todo: Todo) => {
+      return <div key={todo.id}>{todo.title}</div>
+    })
+  }
+
+  return (
+    <div>
+      <button onClick={onClick}>Fetch</button>
+      {renderList()}
+    </div>
+  )
 }
 
 const mapStateToProps = ({ todos }: StoreState): { todos: Todo[] } => {
   return { todos }
 }
 
-export default App
+export const App = connect(
+  mapStateToProps,
+  { fetchTodos }
+)(_App)
