@@ -1,12 +1,18 @@
 import React from 'react'
+import { Todo } from '../actions'
+import { StoreState } from '../reducers'
 
 interface AppProps {
-  color?: string
+  todos: Todo[]
+  fetchTodos(): any
 }
 
 const App = (props: AppProps): JSX.Element => {
+  return <div>Hola</div>
+}
 
-  return <div>{props.color}</div>
+const mapStateToProps = ({ todos }: StoreState): { todos: Todo[] } => {
+  return { todos }
 }
 
 export default App
